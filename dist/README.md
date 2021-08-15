@@ -1,8 +1,7 @@
 # daro
 [![Issues](https://img.shields.io/github/issues/Darolo13/run-buddy)](https://github.com/Darolo13/run-buddy/issues) 
 [![Issues](https://img.shields.io/github/contributors/Darolo13/run-buddy)](https://github.com/Darolo13/run-buddy/graphs/authors)
-![MIT License](https://img.shields.io/badge/license-MIT-orange)
-
+[![cc by 4.0 License](https://img.shields.io/badge/license-cc%20by%204.0-orange)](https://creativecommons.org/licenses/by/4.0/)
 ## Description
 n/a
 

@@ -1,13 +1,38 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 const renderLicenseBadge = license => {
-  if (license) {
-    return `![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%50')}-orange)
-`;
-  } else {
-    return '';
+
+  switch (license) {
+    case 'MIT':
+    case 'Apache 2.0':
+    case 'artistic 2.0':
+    case 'MPL 2.0':
+    case 'Zlib':
+    case 'EPL 1.0':
+    case 'ISC':
+      return `[![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%20')}-orange)](https://opensource.org/licenses/${license.split(' ').join('%20')})`;
+      break;
+    case 'boost 1.0':
+      return `[![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%20')}-orange)](https://www.boost.org/LICENSE_1_0.txt)`
+      break;
+    case 'cc0 1.0':
+      return `[![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%20')}-orange)](http://creativecommons.org/publicdomain/zero/1.0/)`
+      break;
+    case 'cc by 4.0':
+      return `[![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%20')}-orange)](https://creativecommons.org/licenses/by/4.0/)`
+      break;
+    case 'WTFPL':
+      return `[![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%20')}-orange)](http://www.wtfpl.net/about/)`
+      break;
+    case 'unlicense':
+      return `[![${license} License](https://img.shields.io/badge/license-${license.split(' ').join('%20')}-orange)](http://unlicense.org/)`
+      break;
+    default:
+      return '';
+      break;
   }
 };
+
 
 // returns a description and the live link of the project
 const renderDescription = (description, link) => {
