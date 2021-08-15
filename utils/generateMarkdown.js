@@ -33,6 +33,13 @@ const renderLicenseBadge = license => {
   }
 };
 
+const renderLicenseSection = license => {
+  if (license) {
+    return `This project is licensed under the ${license} license.`;
+  } else {
+    return '';
+  }
+}
 
 // returns a description and the live link of the project
 const renderDescription = (description, link) => {
@@ -49,10 +56,7 @@ const renderDescription = (description, link) => {
 const renderTableOfContents = sectionArr => {
   let sectionList = '';
   sectionArr.forEach((element) => {
-    if (element.content && element.header === 'Screenshots') {
-      sectionList += `* [${element.header}](#${(element.header).toLowerCase()})
-`;
-    } else if (element.content) {
+    if (element.content) {
       sectionList += `* [${element.header}](#${(element.header).toLowerCase().split(' ').join('-')})
 `;
     }
@@ -73,9 +77,25 @@ const renderInstallation = install => {
   }
 };
 
+const renderTechnologiesUsed = technologiesUsed => {
+  let technologies = '';
+
+  if (technologiesUsed) {
+    technologiesUsed.forEach(element => {
+      technologies += `
+* ${element}`
+    });
+    return `${technologies}`;
+  } else {
+    return '';
+  };
+};
+
 const renderUsage = usage => {
   return `${usage}`
 };
+
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -87,14 +107,26 @@ function generateMarkdown(data) {
       content: renderInstallation(data.installation)
     },
     {
+      header: 'Technologies Used',
+      content: renderTechnologiesUsed(data.technologiesu)
+    },
+    {
       header: 'Usage',
       content: renderUsage(data.usage)
     },
     {
       header: 'License',
-      content: renderLicenseBadge(license)
+      content: renderLicenseSection(license)
     }
   ];
+
+  sectionArr.forEach((sectionElement) => {
+    if (sectionElement.content) {
+      readmeSection += `## ${sectionElement.header}
+${sectionElement.content}
+`;
+    }
+  });
 
   return `# ${title}
 [![Issues](https://img.shields.io/github/issues/${github}/${repository})](https://github.com/${github}/${repository}/issues) 

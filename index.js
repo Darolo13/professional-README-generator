@@ -74,7 +74,7 @@ const questions = () => {
             type: 'checkbox',
             name: 'sections',
             message: 'Would you like to include any of the following sections in your README?',
-            choices: ['Installation', 'Screenshots', 'Technologies Used', 'Contributing', 'Tests', 'Questions', 'License', 'Credits']
+            choices: ['Installation', 'Technologies Used', 'Contributing', 'Tests', 'Questions', 'License', 'Credits']
         },
         {
             type: 'input',
@@ -110,7 +110,21 @@ const questions = () => {
                     return false;
                 }
             }
-        }
+        },
+        {
+            type: 'checkbox',
+            name: 'technologiesu',
+            message: 'Select the technologies that your project was built with.',
+            choices: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'Java'],
+            default: 0,
+            when: ({ sections }) => {
+                if (sections.indexOf('Technologies Used') > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
     ]);
 };
 
