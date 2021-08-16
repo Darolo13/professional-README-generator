@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const writeFile = require('./utils/generateFile');
 
-// TODO: Create an array of questions for user input
+// Creates an array of questions for user input
 const questions = () => {
     return inquirer.prompt([
         {
@@ -270,7 +270,7 @@ Add New Credit
 
 
 
-// Function call to initialize app
+// Function call to initialize app and create README in generateMarkdown
 questions()
 .then(creditResponse => {
     // calls function to add credits based on user selection

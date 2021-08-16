@@ -1,5 +1,7 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+/* 
+-Creates a function that returns a license badge based on which license is passed in
+-If there is no license, return an empty string 
+*/
 const renderLicenseBadge = license => {
 
   switch (license) {
@@ -113,6 +115,7 @@ const renderQuestions = (email, github, repo) => {
   }
 }
 
+// 
 const createCredits = creditItem => {
   let allCredits = '';
   if (creditItem) {
@@ -126,7 +129,7 @@ const createCredits = creditItem => {
   }
 };
 
-// TODO: Create a function to generate markdown for README
+// Creates a function that generates markdown for README
 function generateMarkdown(data) {
   const { title, github, repository, license } = data;
   let readmeSection = '';
