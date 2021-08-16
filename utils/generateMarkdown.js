@@ -69,9 +69,9 @@ const renderTableOfContents = sectionArr => {
 const renderInstallation = install => {
   if (install) {
     return `To use this project, Please install:
-    \`\`\`
-    ${install}
-    \`\`\``
+\`\`\`
+${install}
+\`\`\``
   } else {
     return '';
   }
@@ -95,7 +95,36 @@ const renderUsage = usage => {
   return `${usage}`
 };
 
+const renderTests = test => {
+  if (test) {
+    return `You'll need to install the following to run tests on the project:
+\`\`\`
+${test}
+\`\`\`
+and run \`npm run test\` from the command terminal.`
+  } else {
+    return '';
+  };
+};
 
+const renderQuestions = (email, github, repo) => {
+  if (email) {
+    return `If you have any inquiry about the repository, [open a new issue](https://github.com/${github}/${repo}/issues) you can also contact me via email at ${email}. You can find more of my work on my GitHub profile and portfolio, [${github}](https://github.com/${github}/).`
+  }
+}
+
+const createCredits = creditItem => {
+  let allCredits = '';
+  if (creditItem) {
+      creditItem.forEach((credit) => {
+      allCredits += `* [${credit.creditName}](${credit.creditLink})
+`;
+      });
+      return allCredits;
+  } else {
+      return '';
+  }
+};
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -107,16 +136,32 @@ function generateMarkdown(data) {
       content: renderInstallation(data.installation)
     },
     {
-      header: 'Technologies Used',
-      content: renderTechnologiesUsed(data.technologiesu)
-    },
-    {
       header: 'Usage',
       content: renderUsage(data.usage)
     },
     {
+      header: 'Technologies Used',
+      content: renderTechnologiesUsed(data.technologiesu)
+    },
+    {
+      header: 'Contributing',
+      content: data.contributing
+    },
+    {
+      header: 'Tests',
+      content: renderTests(data.tests)
+    },
+    {
       header: 'License',
       content: renderLicenseSection(license)
+    },
+    {
+      header: 'Questions',
+      content: renderQuestions(data.questions, github, repository)
+    },
+    {
+      header: 'Credits',
+      content: createCredits(data.credits)
     }
   ];
 
