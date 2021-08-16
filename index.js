@@ -148,7 +148,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'contributing',
-            message: 'Please provide the instructions for contributing. (Required)',
+            message: 'Please provide the guidelines for contributing. (Required)',
             when: ({ sections }) => {
                 if (sections.indexOf('Contributing') > -1) {
                     return true;
@@ -160,7 +160,27 @@ const questions = () => {
                 if (contributingInput) {
                     return true;
                 } else {
-                    console.log('Please enter the instructions for contributing!');
+                    console.log('Please enter the guidelines for contributing!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: 'Enter test information for your project. (Required)',
+            when: ({ sections }) => {
+                if (sections.indexOf('Tests') > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            validate: testsInput => {
+                if (testsInput) {
+                    return true;
+                } else {
+                    console.log('Please enter information required for running tests in your project!');
                     return false;
                 }
             }

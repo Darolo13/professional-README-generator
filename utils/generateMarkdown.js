@@ -95,6 +95,17 @@ const renderUsage = usage => {
   return `${usage}`
 };
 
+const renderTests = test => {
+  if (test) {
+    return `You'll need to install the following to run tests on the project:
+\`\`\`
+${test}
+\`\`\`
+and run \`npm run test\` from the command terminal.`
+  } else {
+    return '';
+  };
+};
 
 
 // TODO: Create a function to generate markdown for README
@@ -107,6 +118,10 @@ function generateMarkdown(data) {
       content: renderInstallation(data.installation)
     },
     {
+      header: 'Usage',
+      content: renderUsage(data.usage)
+    },
+    {
       header: 'Technologies Used',
       content: renderTechnologiesUsed(data.technologiesu)
     },
@@ -115,8 +130,8 @@ function generateMarkdown(data) {
       content: data.contributing
     },
     {
-      header: 'Usage',
-      content: renderUsage(data.usage)
+      header: 'Tests',
+      content: renderTests(data.tests)
     },
     {
       header: 'License',
