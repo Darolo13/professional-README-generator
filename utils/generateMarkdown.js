@@ -107,6 +107,24 @@ and run \`npm run test\` from the command terminal.`
   };
 };
 
+const renderQuestions = (email, github, repo) => {
+  if (email) {
+    return `If you have any inquiry about the repository, [open a new issue](https://github.com/${github}/${repo}/issues) you can also contact me via email at ${email}. You can find more of my work on my GitHub profile and portfolio, [${github}](https://github.com/${github}/).`
+  }
+}
+
+const createCredits = creditItem => {
+  let allCredits = '';
+  if (creditItem) {
+      creditItem.forEach((credit) => {
+      allCredits += `* [${credit.creditName}](${credit.creditLink})
+`;
+      });
+      return allCredits;
+  } else {
+      return '';
+  }
+};
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -136,6 +154,14 @@ function generateMarkdown(data) {
     {
       header: 'License',
       content: renderLicenseSection(license)
+    },
+    {
+      header: 'Questions',
+      content: renderQuestions(data.questions, github, repository)
+    },
+    {
+      header: 'Credits',
+      content: createCredits(data.credits)
     }
   ];
 

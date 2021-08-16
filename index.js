@@ -184,15 +184,102 @@ const questions = () => {
                     return false;
                 }
             }
+        },
+        {
+            type: 'input',
+            name: 'questions',
+            message: 'Please provide an email address so you can get receive questions from others.',
+            when: ({ sections }) => {
+                if (sections.indexOf('Questions') > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            validate: questionsInput => {
+                if (questionsInput) {
+                    return true;
+                } else {
+                    console.log('Provide an email address!');
+                    return false;
+                }
+            }
         }
     ]);
 };
 
+    const creditQues = [
+        {
+            type: 'input',
+            name: 'creditName',
+            message: 'Please give your credit a name. (Required)',
+            validate: creditName => {
+                if (creditName) {
+                    return true;
+                } else {
+                    console.log('Please enter a name for the credit!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'creditLink',
+            message: 'Please provide a link for the credit. (Required)',
+            validate: creditLink => {
+                if (creditLink) {
+                    return true;
+                } else {
+                    console.log('Please enter a name for the credit!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddCredit',
+            message: 'Would you like to add another credit?',
+            default: false
+        }
+    ]
+
+
+addCredits = readmeInfo => {
+    
+    // initiates array for credits
+    if (!readmeInfo.credits) {
+        readmeInfo.credits = [];
+    };
+    console.log(`
+==============
+Add New Credit
+==============
+    `);
+    return inquirer.prompt(creditQues)
+    .then(creditData => {
+        // adds credits to array
+        readmeInfo.credits.push(creditData);
+        // will call addCredits again based on user input
+        if (creditData.confirmAddCredit) {
+            return addCredits(readmeInfo);
+        } else {
+            return readmeInfo;
+        }
+    });
+};
 
 
 
 // Function call to initialize app
 questions()
+.then(creditResponse => {
+    // calls function to add credits based on user selection
+    if (creditResponse.sections.indexOf('Credits') > -1) {
+        return addCredits(creditResponse);
+    } else {
+        return creditResponse;
+    }
+})
     .then(questionData => generateMarkdown(questionData))
     .then(readmeGenerated => writeFile(readmeGenerated))
     .catch(err => {

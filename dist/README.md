@@ -1,7 +1,7 @@
 # n/a
 [![Issues](https://img.shields.io/github/issues/Darolo13/run-buddy)](https://github.com/Darolo13/run-buddy/issues) 
 [![Issues](https://img.shields.io/github/contributors/Darolo13/run-buddy)](https://github.com/Darolo13/run-buddy/graphs/authors)
-[![artistic 2.0 License](https://img.shields.io/badge/license-artistic%202.0-orange)](https://opensource.org/licenses/artistic%202.0)
+[![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-orange)](https://opensource.org/licenses/Apache%202.0)
 ## Description
 n/a
 
@@ -13,26 +13,37 @@ n/a
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [License](#license)
+* [Questions](#questions)
+* [Credits](#credits)
 
 ## Installation
 To use this project, Please install:
 ```
-npm install
+n/a
 ```
 ## Usage
 n/a
 ## Technologies Used
 
+* HTML
+* CSS
 * JavaScript
 * Node.js
+* Express.js
+* Java
 ## Contributing
-just do it
+n/a
 ## Tests
 You'll need to install the following to run tests on the project:
 ```
-use jest
+n/a
 ```
 and run `npm run test` from the command terminal.
 ## License
-This project is licensed under the artistic 2.0 license.
+This project is licensed under the Apache 2.0 license.
+## Questions
+If you have any inquiry about the repository, [open a new issue](https://github.com/Darolo13/run-buddy/issues) you can also contact me via email at n/a. You can find more of my work on my GitHub profile and portfolio, [Darolo13](https://github.com/Darolo13/).
+## Credits
+* [David Romero](https://github.com/Darolo13/)
+
 
