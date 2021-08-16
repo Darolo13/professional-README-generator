@@ -208,7 +208,7 @@ const questions = () => {
     ]);
 };
 
-    const creditQues = [
+    const creditArr = [
         {
             type: 'input',
             name: 'creditName',
@@ -225,7 +225,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'creditLink',
-            message: 'Please provide a link for the credit. (Required)',
+            message: 'Provide a link for the credit. (Required)',
             validate: creditLink => {
                 if (creditLink) {
                     return true;
@@ -255,7 +255,7 @@ addCredits = readmeInfo => {
 Add New Credit
 ==============
     `);
-    return inquirer.prompt(creditQues)
+    return inquirer.prompt(creditArr)
     .then(creditData => {
         // adds credits to array
         readmeInfo.credits.push(creditData);

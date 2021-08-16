@@ -109,7 +109,7 @@ and run \`npm run test\` from the command terminal.`
 
 const renderQuestions = (email, github, repo) => {
   if (email) {
-    return `If you have any inquiry about the repository, [open a new issue](https://github.com/${github}/${repo}/issues) you can also contact me via email at ${email}. You can find more of my work on my GitHub profile and portfolio, [${github}](https://github.com/${github}/).`
+    return `If you have any inquiry about the repository, [open a new issue](https://github.com/${github}/${repo}/issues) or you can also contact me via email at ${email}. You can find more of my work on my GitHub profile and portfolio, [${github}](https://github.com/${github}/).`
   }
 }
 
@@ -175,7 +175,7 @@ ${sectionElement.content}
 
   return `# ${title}
 [![Issues](https://img.shields.io/github/issues/${github}/${repository})](https://github.com/${github}/${repository}/issues) 
-[![Issues](https://img.shields.io/github/contributors/${github}/${repository})](https://github.com/${github}/${repository}/graphs/authors)
+[![Issues](https://img.shields.io/github/contributors/${github}/${repository})](https://github.com/${github}/${repository}/graphs/contributors)
 ${renderLicenseBadge(license)}
 ## Description
 ${renderDescription(data.description, data.link)}
