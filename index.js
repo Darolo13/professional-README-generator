@@ -90,6 +90,26 @@ const questions = () => {
             }
         },
         {
+            type: 'input',
+            name: 'installation',
+            message: 'Please provide the installation instructions',
+            when: ({ sections }) => {
+                if (sections.indexOf('Installation') > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            validate: installationInput => {
+                if (installationInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the installation info for your project!');
+                    return false;
+                }
+            }
+        },
+        {
             type: 'list',
             name: 'license',
             message: 'Provide license information. (Required)',
@@ -125,6 +145,26 @@ const questions = () => {
                 }
             }
         },
+        {
+            type: 'input',
+            name: 'contributing',
+            message: 'Please provide the instructions for contributing. (Required)',
+            when: ({ sections }) => {
+                if (sections.indexOf('Contributing') > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            validate: contributingInput => {
+                if (contributingInput) {
+                    return true;
+                } else {
+                    console.log('Please enter the instructions for contributing!');
+                    return false;
+                }
+            }
+        }
     ]);
 };
 

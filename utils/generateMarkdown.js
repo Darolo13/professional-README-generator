@@ -69,9 +69,9 @@ const renderTableOfContents = sectionArr => {
 const renderInstallation = install => {
   if (install) {
     return `To use this project, Please install:
-    \`\`\`
-    ${install}
-    \`\`\``
+\`\`\`
+${install}
+\`\`\``
   } else {
     return '';
   }
@@ -109,6 +109,10 @@ function generateMarkdown(data) {
     {
       header: 'Technologies Used',
       content: renderTechnologiesUsed(data.technologiesu)
+    },
+    {
+      header: 'Contributing',
+      content: data.contributing
     },
     {
       header: 'Usage',
